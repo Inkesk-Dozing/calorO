@@ -52,7 +52,4 @@ Calorie Tracker CLI with UI
 
 Place the output of codes here
 
-
-
-
-
+## Notes
