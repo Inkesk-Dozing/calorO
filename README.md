@@ -34,6 +34,8 @@ Calorie Tracker CLI with UI
 - View total calorie intake for the day.
 - Set and monitor progress towards a daily calorie goal.
 - Get a detailed summary of all meals logged each day.
+- **Neatly formatted output** with proper table alignment and f-strings.
+- **Save session reports** to timestamped text files.
 - Reset your daily log with ease.
 
 ---
@@ -44,12 +46,58 @@ Calorie Tracker CLI with UI
 - Input the number of meals you want to log.
 - For each meal, specify its name and calorie count.
 - After logging, see total and average calories consumed.
-- Set a daily calorie goal—get notified if you’re under, on, or over your target.
+- Set a daily calorie goal—get notified if you're under, on, or over your target.
+- View a **neatly formatted table** with proper alignment showing all your meals and statistics.
+- **Save your session** to a timestamped text file for future reference.
 
 ---
 
 ## 📊 Reporting
 
-Place the output of codes here
+The app generates beautifully formatted reports with:
+
+### Console Output
+```
+========== DAILY CALORIE REPORT ==========
+Meal Name		Calories
+--------------------------------
+Breakfast		350
+Lunch			600
+Snack			150
+--------------------------------
+Total:			1100
+Average:		366.67
+--------------------------------
+```
+
+### File Export
+- **Automatic timestamping**: Files named `calorie_report_YYYYMMDD_HHMMSS.txt`
+- **Comprehensive data**: Includes timestamp, meal details, totals, averages, and goal status
+- **Professional formatting**: Clean, readable text format for easy sharing
+
+### Sample Report File
+```
+CALORIE TRACKER SESSION REPORT
+========================================
+Generated on: 2024-01-15 14:30:25
+
+MEAL DETAILS:
+Meal Name		Calories
+--------------------------------
+Breakfast		350
+Lunch			600
+Snack			150
+--------------------------------
+Total:			1100
+Average:		366.67
+--------------------------------
+
+GOAL STATUS:
+Daily Goal: 2000 calories
+Status: Within goal - 900 calories remaining
+```
 
 ## Notes
+
+
+989170588

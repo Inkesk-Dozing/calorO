@@ -54,11 +54,52 @@ print("\nSummary of meals logged for the day:")
 
 # -------Task 5------
 print("\n========== DAILY CALORIE REPORT ==========")
-print("Meal Name\tCalories")
-print("------------------------------------------")
+print("Meal Name\t\tCalories")
+print("--------------------------------")
 for i in range(len(meal_list)):
     print(f"{meal_list[i]}\t\t{calorie_list[i]}")
-print("------------------------------------------")
-print(f"Total:\t\t{total_calories}")
-print(f"Average:\t{avg_calories:.3f}")
-print("------------------------------------------")
+print("--------------------------------")
+print(f"Total:\t\t\t{total_calories}")
+print(f"Average:\t\t{avg_calories:.2f}")
+print("--------------------------------")
+
+# -------Task 6------
+save_choice = input("\nDo you want to save this report to a file? (y/n): ").lower().strip()
+if save_choice == 'y' or save_choice == 'yes':
+    from datetime import datetime
+    
+    # Create filename with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"calorie_report_{timestamp}.txt"
+    
+    # Determine limit status
+    if total_calories < daily_goal:
+        limit_status = f"Within goal - {daily_goal - total_calories} calories remaining"
+    elif total_calories == daily_goal:
+        limit_status = "Met goal exactly"
+    else:
+        limit_status = f"Exceeded goal by {total_calories - daily_goal} calories"
+    
+    # Write to file
+    with open(filename, "w") as file:
+        file.write("CALORIE TRACKER SESSION REPORT\n")
+        file.write("=" * 40 + "\n")
+        file.write(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+        
+        file.write("MEAL DETAILS:\n")
+        file.write("Meal Name\t\tCalories\n")
+        file.write("-" * 32 + "\n")
+        for i in range(len(meal_list)):
+            file.write(f"{meal_list[i]}\t\t{calorie_list[i]}\n")
+        file.write("-" * 32 + "\n")
+        file.write(f"Total:\t\t\t{total_calories}\n")
+        file.write(f"Average:\t\t{avg_calories:.2f}\n")
+        file.write("-" * 32 + "\n\n")
+        
+        file.write("GOAL STATUS:\n")
+        file.write(f"Daily Goal: {daily_goal} calories\n")
+        file.write(f"Status: {limit_status}\n")
+    
+    print(f"Report saved successfully to: {filename}")
+else:
+    print("Report not saved.")

@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, send_file
+from datetime import datetime
+import os
 
 """
 Simple Flask app (assignment-style) for a calorie tracker.
@@ -88,6 +90,52 @@ def delete_meal(index):
 def reset():
     session['meals'] = []
     return redirect(url_for('index'))
+
+@app.route('/generate_report')
+def generate_report():
+    """Generate and download a formatted calorie report."""
+    init_session()
+    meals = session.get('meals', [])
+    daily_goal = session.get('daily_goal', 2000)
+    
+    # Calculate totals
+    total_calories = sum(meal['calories'] for meal in meals)
+    avg_calories = total_calories / len(meals) if meals else 0
+    
+    # Determine limit status
+    if total_calories < daily_goal:
+        limit_status = f"Within goal - {daily_goal - total_calories} calories remaining"
+    elif total_calories == daily_goal:
+        limit_status = "Met goal exactly"
+    else:
+        limit_status = f"Exceeded goal by {total_calories - daily_goal} calories"
+    
+    # Create filename with timestamp
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"calorie_report_{timestamp}.txt"
+    
+    # Write to file
+    with open(filename, "w") as file:
+        file.write("CALORIE TRACKER SESSION REPORT\n")
+        file.write("=" * 40 + "\n")
+        file.write(f"Generated on: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n")
+        
+        file.write("MEAL DETAILS:\n")
+        file.write("Meal Name\t\tCalories\n")
+        file.write("-" * 32 + "\n")
+        for meal in meals:
+            file.write(f"{meal['name']}\t\t{meal['calories']}\n")
+        file.write("-" * 32 + "\n")
+        file.write(f"Total:\t\t\t{total_calories}\n")
+        file.write(f"Average:\t\t{avg_calories:.2f}\n")
+        file.write("-" * 32 + "\n\n")
+        
+        file.write("GOAL STATUS:\n")
+        file.write(f"Daily Goal: {daily_goal} calories\n")
+        file.write(f"Status: {limit_status}\n")
+    
+    # Send file for download
+    return send_file(filename, as_attachment=True, download_name=filename)
 
 if __name__ == '__main__':
     app.run(debug=True)

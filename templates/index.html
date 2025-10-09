@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>calorO - Calorie Tracker</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { margin-bottom: 10px; }
-        form { margin-bottom: 20px; }
-        input { padding: 6px 8px; }
-        button { padding: 6px 10px; }
-        table { border-collapse: collapse; width: 100%; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        tfoot td { font-weight: bold; }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <div class="container">
@@ -33,47 +24,49 @@
         <table>
             <thead>
                 <tr>
-                    <th>Meal</th>
-                    <th>Calories</th>
-                    <th>Action</th>
+                    <th class="meal-name">Meal Name</th>
+                    <th class="calories">Calories</th>
+                    <th class="action">Action</th>
                 </tr>
             </thead>
             <tbody>
                 {% for meal in meals %}
                 <tr>
-                    <td>{{ meal.name }}</td>
-                    <td>{{ meal.calories }}</td>
-                    <td><a href="{{ url_for('delete_meal', index=loop.index0) }}">Delete</a></td>
+                    <td class="meal-name">{{ meal.name }}</td>
+                    <td class="calories">{{ meal.calories }}</td>
+                    <td class="action"><a href="{{ url_for('delete_meal', index=loop.index0) }}">Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
-                    <td>Total</td>
-                    <td>{{ total_calories }}</td>
-                    <td></td>
+                    <td class="meal-name">Total</td>
+                    <td class="calories">{{ total_calories }}</td>
+                    <td class="action"></td>
                 </tr>
                 <tr>
-                    <td>Average</td>
-                    <td>{{ "%.3f"|format(avg_calories) }}</td>
-                    <td></td>
+                    <td class="meal-name">Average</td>
+                    <td class="calories">{{ "%.2f"|format(avg_calories) }}</td>
+                    <td class="action"></td>
                 </tr>
                 <tr>
-                    <td>Daily Goal</td>
-                    <td>{{ daily_goal }}</td>
-                    <td></td>
+                    <td class="meal-name">Daily Goal</td>
+                    <td class="calories">{{ daily_goal }}</td>
+                    <td class="action"></td>
                 </tr>
                 <tr>
-                    <td>Remaining</td>
-                    <td>{{ remaining_calories }}</td>
-                    <td></td>
+                    <td class="meal-name">Remaining</td>
+                    <td class="calories">{{ remaining_calories }}</td>
+                    <td class="action"></td>
                 </tr>
             </tfoot>
         </table>
 
-        <p><a href="{{ url_for('reset') }}">Reset daily log</a></p>
+        <div class="actions">
+            <a href="{{ url_for('reset') }}" class="link-reset">Reset daily log</a>
+            <a href="{{ url_for('generate_report') }}" class="btn-primary">Download Report</a>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
