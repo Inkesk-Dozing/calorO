@@ -20,6 +20,8 @@ Calorie Tracker CLI with UI
 
 </h1>
 
+
+ [🌐 **Live Demo**](https://caloro.onrender.com) - Deployment
 ---
 
 ## 🚀 Introduction
