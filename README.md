@@ -56,7 +56,7 @@ Calorie Tracker CLI with UI
 
 ## 📊 Reporting
 
-The app generates beautifully formatted reports with:
+The app generates formatted reports with:
 
 ### Console Output
 
