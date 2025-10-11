@@ -1,6 +1,7 @@
 
 
 # ------------Task 1 ----------
+
 #Harsh Dev Jha  , Date- 3/10/25
 #calorO - Is a calorie tracker app
 # Create a simple calorie tracker app that allows users to log their meals and
@@ -31,6 +32,7 @@ else:
 
 
 #------Task 3------
+
 total_calories=sum(calorie_list)
 avg_calories=total_calories/len(calorie_list)
 print(f"\nTotal calorie intake for the day: {total_calories} calories")
@@ -41,6 +43,7 @@ print(f"Average calorie intake per meal: {avg_calories:.3f} calories")
 daily_goal=float(input("Set your daily calorie goal: "))
 
 #------Task 4------
+
 if total_calories<daily_goal:
     print(f"You are within your daily calorie goal of {daily_goal} calories.")
     print(f"You have {daily_goal - total_calories} calories remaining for the day.")
@@ -53,6 +56,7 @@ else:
 print("\nSummary of meals logged for the day:")
 
 # -------Task 5------
+
 def spaces(word, tab):
     """Calculate proper spacing for table alignment"""
     l = len(word)
@@ -64,16 +68,15 @@ print("\n====== DAILY CALORIE REPORT ======")
 print("Meal Name\t\tCalories")
 print("--------------------------------")
 for i in range(len(meal_list)):
-    spacing = spaces(meal_list[i], 3)  
-    print(f"{meal_list[i]}{spacing}{calorie_list[i]:.2f}")
+    print(f"{meal_list[i]}{spaces(meal_list[i], 3)}{calorie_list[i]:.2f}")
 print("--------------------------------")
-spacing_total = spaces("Total:", 3)
-spacing_avg = spaces("Average:", 3)
-print(f"Total:{spacing_total}{total_calories:.2f}")
-print(f"Average:{spacing_avg}{avg_calories:.2f}")
+print(f"Total:{spaces('Total:', 3)}{total_calories:.2f}")
+print(f"Average:{spaces('Average:', 3)}{avg_calories:.2f}")
 print("--------------------------------")
 
 # -------Task 6------
+# Bonus Task
+
 save_choice = input("\nDo you want to save this report to a file? (y/n): ").lower().strip()
 if save_choice == 'y' or save_choice == 'yes':
     from datetime import datetime
@@ -82,13 +85,13 @@ if save_choice == 'y' or save_choice == 'yes':
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"calorie_report_{timestamp}.txt"
     
-    # Determine limit status
+    # Determine goal status
     if total_calories < daily_goal:
-        limit_status = f"Within goal - {daily_goal - total_calories} calories remaining"
+        goal_stat = f"Within goal - {daily_goal - total_calories} calories remaining"
     elif total_calories == daily_goal:
-        limit_status = "Met goal exactly"
+        goal_stat = "Met goal exactly"
     else:
-        limit_status = f"Exceeded goal by {total_calories - daily_goal} calories"
+        goal_stat = f"Exceeded goal by {total_calories - daily_goal} calories"
     
     # Write to file
     with open(filename, "w") as file:
@@ -100,18 +103,15 @@ if save_choice == 'y' or save_choice == 'yes':
         file.write("Meal Name\t\tCalories\n")
         file.write("-" * 32 + "\n")
         for i in range(len(meal_list)):
-            spacing = spaces(meal_list[i], 3)  
-            file.write(f"{meal_list[i]}{spacing}{calorie_list[i]:.2f}\n")
+            file.write(f"{meal_list[i]}{spaces(meal_list[i], 3)}{calorie_list[i]:.2f}\n")
         file.write("-" * 32 + "\n")
-        spacing_total = spaces("Total:", 3)
-        spacing_avg = spaces("Average:", 3)
-        file.write(f"Total:{spacing_total}{total_calories:.2f}\n")
-        file.write(f"Average:{spacing_avg}{avg_calories:.2f}\n")
+        file.write(f"Total:{spaces('Total:', 3)}{total_calories:.2f}\n")
+        file.write(f"Average:{spaces('Average:', 3)}{avg_calories:.2f}\n")
         file.write("-" * 32 + "\n\n")
         
         file.write("GOAL STATUS:\n")
         file.write(f"Daily Goal: {daily_goal} calories\n")
-        file.write(f"Status: {limit_status}\n")
+        file.write(f"Status: {goal_stat}\n")
     
     print(f"Report saved successfully to: {filename}")
 else:

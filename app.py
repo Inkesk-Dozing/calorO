@@ -109,15 +109,15 @@ def generate_report():
     total_calories = sum(meal['calories'] for meal in meals)
     avg_calories = total_calories / len(meals) if meals else 0
     
-    # Determine limit status
+    # Determine goal status
     if total_calories < daily_goal:
-        limit_status = f"Within goal - {daily_goal - total_calories} calories remaining"
+        goal_stat = f"Within goal - {daily_goal - total_calories} calories remaining"
     elif total_calories == daily_goal:
-        limit_status = "Met goal exactly"
+        goal_stat = "Met goal exactly"
     else:
-        limit_status = f"Exceeded goal by {total_calories - daily_goal} calories"
+        goal_stat = f"Exceeded goal by {total_calories - daily_goal} calories"
     
-    # Create filename with timestamp
+    # Create timestamps
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"calorie_report_{timestamp}.txt"
     
@@ -131,18 +131,15 @@ def generate_report():
         file.write("Meal Name\t\tCalories\n")
         file.write("-" * 32 + "\n")
         for meal in meals:
-            spacing = spaces(meal['name'], 3)  
-            file.write(f"{meal['name']}{spacing}{meal['calories']:.2f}\n")
+            file.write(f"{meal['name']}{spaces(meal['name'], 3)}{meal['calories']:.2f}\n")
         file.write("-" * 32 + "\n")
-        spacing_total = spaces("Total:", 3)
-        spacing_avg = spaces("Average:", 3)
-        file.write(f"Total:{spacing_total}{total_calories:.2f}\n")
-        file.write(f"Average:{spacing_avg}{avg_calories:.2f}\n")
+        file.write(f"Total:{spaces('Total:', 3)}{total_calories:.2f}\n")
+        file.write(f"Average:{spaces('Average:', 3)}{avg_calories:.2f}\n")
         file.write("-" * 32 + "\n\n")
         
         file.write("GOAL STATUS:\n")
         file.write(f"Daily Goal: {daily_goal} calories\n")
-        file.write(f"Status: {limit_status}\n")
+        file.write(f"Status: {goal_stat}\n")
     
     # Send file for download
     return send_file(filename, as_attachment=True, download_name=filename)
