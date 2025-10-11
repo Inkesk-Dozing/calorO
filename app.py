@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 
 """
-Simple Flask app (assignment-style) for a calorie tracker.
+Simple Flask app (Assignment-styled) for a calorie tracker.
 Features:
 - Add meals with calories
 - Set a daily calorie goal
