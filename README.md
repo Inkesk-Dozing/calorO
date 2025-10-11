@@ -171,7 +171,7 @@ User inputs include food name and quantity. These are mapped to calorie values u
 added to a report file for future reference if needed.
 
 **Data Preparation**  
-Inputs are cleaned (e.g., lowercased, stripped), validated, and stored in structured format (CSV or JSON).
+Inputs are cleaned (e.g., lowercased, stripped), validated, and stored in structured format (CSV or JSON, .txt in this case).
 
 **Modeling**  
 No ML model yet, but logic could be extended to suggest healthier alternatives or predict intake trends.
