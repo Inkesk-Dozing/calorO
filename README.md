@@ -110,6 +110,8 @@ Click for Sample txt Report file on Creation
 </a>
 
 
+# 📱For Flask Built App
+
 ## Installation
 
 1. Install the required dependencies:
@@ -124,7 +126,7 @@ python app.py
 
 3. Open your web browser and go to `http://127.0.0.1:5000`
 
-# 📱For Flask Built App
+
 
 ## Usage
 
@@ -154,13 +156,14 @@ python app.py
 - **Professional Format**: Clean, readable text format perfect for sharing
 
 
-## Future Additions
+##General Importance
+
+### Future Additions
 -**Importing Data**: Import Prev log file to add data in it.
 -**Styling UI**: UI could be made more attractive and user friendly for longer run.
 
 
-
-## Technical Details
+### Technical Details
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML5, CSS3, Bootstrap 5
