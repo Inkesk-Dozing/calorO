@@ -25,7 +25,7 @@ if meal_no=='q':
 else: 
     for i in range(int(meal_no)):
         meal=input(str("Enter your meal (e.g., breakfast, lunch, dinner, snack): "))
-        calories=int(input("Enter the number of calories consumed: "))  
+        calories=float(input("Enter the number of calories consumed: "))  
         meal_list.append(meal)
         calorie_list.append(calories)
 
@@ -53,14 +53,24 @@ else:
 print("\nSummary of meals logged for the day:")
 
 # -------Task 5------
-print("\n========== DAILY CALORIE REPORT ==========")
+def spaces(word, tab):
+    """Calculate proper spacing for table alignment"""
+    l = len(word)
+    t = "\t"
+    n = tab - l//8  # total tabs - tabs occupied by current word
+    return t*n
+
+print("\n====== DAILY CALORIE REPORT ======")
 print("Meal Name\t\tCalories")
 print("--------------------------------")
 for i in range(len(meal_list)):
-    print(f"{meal_list[i]}\t\t{calorie_list[i]}")
+    spacing = spaces(meal_list[i], 3)  
+    print(f"{meal_list[i]}{spacing}{calorie_list[i]:.2f}")
 print("--------------------------------")
-print(f"Total:\t\t\t{total_calories}")
-print(f"Average:\t\t{avg_calories:.2f}")
+spacing_total = spaces("Total:", 3)
+spacing_avg = spaces("Average:", 3)
+print(f"Total:{spacing_total}{total_calories:.2f}")
+print(f"Average:{spacing_avg}{avg_calories:.2f}")
 print("--------------------------------")
 
 # -------Task 6------
@@ -90,10 +100,13 @@ if save_choice == 'y' or save_choice == 'yes':
         file.write("Meal Name\t\tCalories\n")
         file.write("-" * 32 + "\n")
         for i in range(len(meal_list)):
-            file.write(f"{meal_list[i]}\t\t{calorie_list[i]}\n")
+            spacing = spaces(meal_list[i], 3)  
+            file.write(f"{meal_list[i]}{spacing}{calorie_list[i]:.2f}\n")
         file.write("-" * 32 + "\n")
-        file.write(f"Total:\t\t\t{total_calories}\n")
-        file.write(f"Average:\t\t{avg_calories:.2f}\n")
+        spacing_total = spaces("Total:", 3)
+        spacing_avg = spaces("Average:", 3)
+        file.write(f"Total:{spacing_total}{total_calories:.2f}\n")
+        file.write(f"Average:{spacing_avg}{avg_calories:.2f}\n")
         file.write("-" * 32 + "\n\n")
         
         file.write("GOAL STATUS:\n")

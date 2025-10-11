@@ -49,7 +49,7 @@ def add_meal():
 
     # Parse and validate inputs simply
     try:
-        calories = int(calories)
+        calories = float(calories)
     except ValueError:
         return redirect(url_for('index'))
 
@@ -69,7 +69,7 @@ def set_goal():
 
     # Parse and validate goal simply
     try:
-        goal = int(goal)
+        goal = float(goal)
     except ValueError:
         return redirect(url_for('index'))
 
@@ -90,6 +90,13 @@ def delete_meal(index):
 def reset():
     session['meals'] = []
     return redirect(url_for('index'))
+
+def spaces(word, tab):
+    """Calculate proper spacing for table alignment"""
+    l = len(word)
+    t = "\t"
+    n = tab - l//8  # total tabs - tabs occupied by current word
+    return t*n
 
 @app.route('/generate_report')
 def generate_report():
@@ -124,10 +131,13 @@ def generate_report():
         file.write("Meal Name\t\tCalories\n")
         file.write("-" * 32 + "\n")
         for meal in meals:
-            file.write(f"{meal['name']}\t\t{meal['calories']}\n")
+            spacing = spaces(meal['name'], 3)  
+            file.write(f"{meal['name']}{spacing}{meal['calories']:.2f}\n")
         file.write("-" * 32 + "\n")
-        file.write(f"Total:\t\t\t{total_calories}\n")
-        file.write(f"Average:\t\t{avg_calories:.2f}\n")
+        spacing_total = spaces("Total:", 3)
+        spacing_avg = spaces("Average:", 3)
+        file.write(f"Total:{spacing_total}{total_calories:.2f}\n")
+        file.write(f"Average:{spacing_avg}{avg_calories:.2f}\n")
         file.write("-" * 32 + "\n\n")
         
         file.write("GOAL STATUS:\n")

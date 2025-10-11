@@ -33,7 +33,7 @@
                 {% for meal in meals %}
                 <tr>
                     <td class="meal-name">{{ meal.name }}</td>
-                    <td class="calories">{{ meal.calories }}</td>
+                    <td class="calories">{{ "%.2f"|format(meal.calories) }}</td>
                     <td class="action"><a href="{{ url_for('delete_meal', index=loop.index0) }}">Delete</a></td>
                 </tr>
                 {% endfor %}
@@ -41,7 +41,7 @@
             <tfoot>
                 <tr>
                     <td class="meal-name">Total</td>
-                    <td class="calories">{{ total_calories }}</td>
+                    <td class="calories">{{ "%.2f"|format(total_calories) }}</td>
                     <td class="action"></td>
                 </tr>
                 <tr>
@@ -51,12 +51,12 @@
                 </tr>
                 <tr>
                     <td class="meal-name">Daily Goal</td>
-                    <td class="calories">{{ daily_goal }}</td>
+                    <td class="calories">{{ "%.2f"|format(daily_goal) }}</td>
                     <td class="action"></td>
                 </tr>
                 <tr>
                     <td class="meal-name">Remaining</td>
-                    <td class="calories">{{ remaining_calories }}</td>
+                    <td class="calories">{{ "%.2f"|format(remaining_calories) }}</td>
                     <td class="action"></td>
                 </tr>
             </tfoot>
