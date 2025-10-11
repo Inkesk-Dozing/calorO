@@ -109,6 +109,66 @@ Click for Sample txt Report file on Creation
   <img src="https://img.shields.io/badge/View%20File-Calorie_Report-blue?logo=github" alt="Calorie Report Badge">
 </a>
 
-## Notes
-To check details on App by flask and installation refer to :
-[![App by Flask](https://img.shields.io/badge/App_by-Flask-blue?logo=flask)](https://github.com/Inkesk-Dozing/calorO/blob/main/App.md)
+
+## Installation
+
+1. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Run the Flask application:
+```bash
+python app.py
+```
+
+3. Open your web browser and go to `http://127.0.0.1:5000`
+
+## Usage
+
+1. **Set Your Daily Goal**: Enter your target daily calorie intake
+2. **Add Meals**: Log each meal with its name and calorie count
+3. **Track Progress**: Monitor your progress throughout the day
+4. **Manage Meals**: Delete individual meals or reset everything
+5. **View Statistics**: See totals, averages, and remaining calories
+6. **Export Reports**: Download detailed session reports as text files
+
+## Features Overview
+
+- **Modern UI**: Clean, responsive design with Bootstrap 5
+- **Real-time Updates**: See your progress update immediately
+- **Session Storage**: Your data persists during your browsing session
+- **Mobile Friendly**: Fully responsive design for all devices
+- **Visual Progress**: Progress bar showing goal completion
+- **Professional Tables**: Neatly formatted tables with proper alignment
+- **Report Export**: Download comprehensive session reports with timestamps
+
+## New Features 
+
+### 📁 Report Export
+- **One-Click Download**: Download comprehensive session reports instantly
+- **Timestamped Files**: Automatic filename generation with date/time stamps
+- **Complete Data**: Includes all meal details, totals, averages, and goal status
+- **Professional Format**: Clean, readable text format perfect for sharing
+
+
+## Future Additions
+-**Importing Data**: Import Prev log file to add data in it.
+-**Styling UI**: UI could be made more attractive and user friendly for longer run.
+
+
+
+## Technical Details
+
+- **Backend**: Flask (Python)
+- **Frontend**: HTML5, CSS3, Bootstrap 5
+- **Icons**: Font Awesome 6
+- **Data Storage**: Flask sessions (in-memory)
+- **File Export**: Automatic text file generation with timestamps
+
+## Original Command Line Version
+
+The original command-line version is still available in `main.py` for Assignment reference purposes.
+
+##Disclaimer
+This is Extra to what was assigned but the assigned task can still be refered to at 'main.py.'
