@@ -9,7 +9,7 @@ Under ØSKA<br></p>
 <div align="center"><strong>.</strong></div>
 <br>
 
-Calorie Tracker CLI with UI
+<div align="center">Calorie Tracker CLI and UI</div>
 
 <h1 align="center" style="color: #e3833a;">
 
