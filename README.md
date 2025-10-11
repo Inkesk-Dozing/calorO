@@ -105,7 +105,7 @@ Daily Goal: 2000 calories
 Status: Within goal - 900 calories remaining
 ```
 Click for Sample txt Report file on Creation
-<a href="https://github.com/Inkesk-Dozing/calorO/blob/main/calorie_report_20251011_181845.txt" target="_blank">
+<a href="https://github.com/Inkesk-Dozing/calorO/blob/main/.docs/calorie_report_20251011_181845.txt" target="_blank">
   <img src="https://img.shields.io/badge/View%20File-Calorie_Report-blue?logo=github" alt="Calorie Report Badge">
 </a>
 
