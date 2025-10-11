@@ -1,0 +1,18 @@
+CALORIE TRACKER SESSION REPORT
+========================================
+Generated on: 2025-10-11 18:18:45
+
+MEAL DETAILS:
+Meal Name		Calories
+--------------------------------
+Breakfast		1000.00
+Lunch			350.00
+Dinner			525.00
+--------------------------------
+Total:			1875.00
+Average:		625.00
+--------------------------------
+
+GOAL STATUS:
+Daily Goal: 1500.0 calories
+Status: Exceeded goal by 375.0 calories
