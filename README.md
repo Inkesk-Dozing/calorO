@@ -75,8 +75,13 @@ Average:		366.67
 --------------------------------
 ```
 
-<h2>Output from the Project Code (maine.py)</h2>
-<img width="1191" height="836" alt="Screenshot 2025-10-11 181908" src="https://github.com/user-attachments/assets/f0cf9bac-4866-4a20-b21f-0c043817f112" />
+<h2>Output from the Project Code (main.py)</h2>
+1.<img width="1191" height="836" alt="Screenshot 2025-10-11 181908" src="https://github.com/user-attachments/assets/f0cf9bac-4866-4a20-b21f-0c043817f112" />
+
+2.<img width="1193" height="750" alt="image" src="https://github.com/user-attachments/assets/df5b1fbf-5d08-4060-8438-38146aa38efa" />
+
+3.<img width="1182" height="251" alt="image" src="https://github.com/user-attachments/assets/2b837b79-07ff-4083-adab-88ce63cec288" />
+
 
 ### File Export
 - **Automatic timestamping**: Files named `calorie_report_YYYYMMDD_HHMMSS.txt`
