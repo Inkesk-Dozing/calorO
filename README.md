@@ -57,6 +57,9 @@ Calorie Tracker CLI with UI
 The app generates beautifully formatted reports with:
 
 ### Console Output
+
+<h2>Sample</h2>
+
 ```
 ========== DAILY CALORIE REPORT ==========
 Meal Name		Calories
@@ -69,6 +72,9 @@ Total:			1100
 Average:		366.67
 --------------------------------
 ```
+
+<h2>Output from the Project Code (maine.py)</h2>
+<img width="1191" height="836" alt="Screenshot 2025-10-11 181908" src="https://github.com/user-attachments/assets/f0cf9bac-4866-4a20-b21f-0c043817f112" />
 
 ### File Export
 - **Automatic timestamping**: Files named `calorie_report_YYYYMMDD_HHMMSS.txt`
@@ -96,8 +102,11 @@ GOAL STATUS:
 Daily Goal: 2000 calories
 Status: Within goal - 900 calories remaining
 ```
+Click for Sample txt Report file on Creation
+<a href="https://github.com/Inkesk-Dozing/calorO/blob/main/calorie_report_20251011_181845.txt" target="_blank">
+  <img src="https://img.shields.io/badge/View%20File-Calorie_Report-blue?logo=github" alt="Calorie Report Badge">
+</a>
 
 ## Notes
-
-
-989170588
+To check details on App by flask and installation refer to :
+[![App by Flask](https://img.shields.io/badge/App_by-Flask-blue?logo=flask)](https://github.com/Inkesk-Dozing/calorO/blob/main/App.md)
