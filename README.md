@@ -156,7 +156,7 @@ python app.py
 - **Professional Format**: Clean, readable text format perfect for sharing
 
 
-##General Importance
+## General Importance
 
 ### Future Additions
 -**Importing Data**: Import Prev log file to add data in it.
