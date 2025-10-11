@@ -156,11 +156,35 @@ python app.py
 - **Professional Format**: Clean, readable text format perfect for sharing
 
 
+## 🧠 CRISP-DM Framework
+
+**Business Understanding**  
+Calorie tracking helps users make informed dietary choices. This app simplifies that process by allowing users to log food items and view calorie summaries.
+
+**Data Understanding**  
+User inputs include food name and quantity. These are mapped to calorie values using internal logic or external databases, and also are
+added to a report file for future reference if needed.
+
+**Data Preparation**  
+Inputs are cleaned (e.g., lowercased, stripped), validated, and stored in structured format (CSV or JSON).
+
+**Modeling**  
+No ML model yet, but logic could be extended to suggest healthier alternatives or predict intake trends.
+Considering in Future implementations.
+
+**Evaluation**  
+Success is measured by accuracy of calorie estimates and ease of use. Future metrics may include user retention or feedback, if scaled as such.
+
+**Deployment**  
+Live on Render: [https://caloro.onrender.com](https://caloro.onrender.com)
+
+
 ## General Importance
 
-### Future Additions
+### Future Implementations
 -**Importing Data**: Import Prev log file to add data in it.
 -**Styling UI**: UI could be made more attractive and user friendly for longer run.
+-**Model**: Add and ML model for data referring and analyzing.
 
 
 ### Technical Details
